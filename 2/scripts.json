@@ -1,0 +1,9 @@
+{
+    "scripts": {
+      "start": {
+        "cmd": "deno run --allow-net --allow-read  server.tsx",
+        "watch": true,
+        "ext": "tsx"
+      }
+    }
+  }
