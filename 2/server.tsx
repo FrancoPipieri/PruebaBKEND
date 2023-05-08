@@ -80,7 +80,7 @@ function App(props: { colors: string[] }) {
     <div>
       <form onSubmit={handleColorSubmit}>
         <label>
-          Enter a color name in English:
+          Ingrese un Color en Ingles:
           <input type="text" name="color" value={newColor} onChange={handleColorChange} />
         </label>
         <button type="submit">Add color</button>
