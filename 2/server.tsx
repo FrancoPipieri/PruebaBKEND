@@ -43,17 +43,16 @@ function renderTemplate(body: string) {
       </head>
       <body>
         <div id="root">${body}</div>
-        <script type="module" src="/client.js"></script>
       </body>
     </html>`;
 }
 
 function App(props: { colors: string[] }) {
-  const [newColor, setNewColor] = useState("");
-
+  const [newColor, setNewColor] = useState([]);
+  
   async function handleColorSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
+    
     try {
       const response = await fetch("/colors", {
         method: "POST",
@@ -63,7 +62,7 @@ function App(props: { colors: string[] }) {
 
       if (response.ok) {
         colors.push(newColor.trim().toLowerCase());
-        setNewColor("");
+        setNewColor([]);
       } else {
         alert(`Failed to add color: ${response.status} ${response.statusText}`);
       }
